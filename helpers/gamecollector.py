@@ -40,7 +40,7 @@ years = [ '1999-00' ,'2000-01', '2001-02', '2002-03', '2003-04', '2004-05', '200
 
 for year in years:
     logger.info("Collecting games for {} season".format(year))
-    game_finder = leaguegamefinder.LeagueGameFinder(season_nullable=year, season_type_nullable='Regular Season', league_id_nullable='00')
+    game_finder = leaguegamefinder.LeagueGameFinder(season_nullable=year, season_type_nullable=season_type, league_id_nullable='00')
     time.sleep(5)
     games = game_finder.get_data_frames()[0]
 
