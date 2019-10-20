@@ -1,0 +1,31 @@
+Team,Odds,W-L O/U,Result,Probability
+Los Angeles Lakers,+350,54.5,65-17 (over),0.2222
+Boston Celtics,+350,53.5,62-20 (over),0.2222
+San Antonio Spurs,+800,48.5,54-28 (over),0.1111
+Cleveland Cavaliers,+1000,47.5,66-16 (over),0.0909
+New Orleans Hornets,+1000,51.5,49-33 (under),0.0909
+Detroit Pistons,+1000,50.5,39-43 (under),0.0909
+Utah Jazz,+1200,51.5,48-34 (under),0.0769
+Houston Rockets,+1200,53.5,53-29 (under),0.0769
+Phoenix Suns,+1500,46.5,46-36 (under),0.0625
+Dallas Mavericks,+2000,46.5,50-32 (over),0.0476
+Orlando Magic,+2000,47.5,59-23 (over),0.0476
+Philadelphia 76ers,+2500,48.5,41-41 (under),0.0385
+Portland Trail Blazers,+3000,44.5,54-28 (over),0.0323
+Chicago Bulls,+3000,40.5,41-41 (over),0.0323
+Miami Heat,+3500,37.5,43-39 (over),0.0278
+Toronto Raptors,+3500,47.5,33-49 (under),0.0278
+Denver Nuggets,+5000,40.5,54-28 (over),0.0196
+Washington Wizards,+6000,38.5,19-63 (under),0.0164
+Los Angeles Clippers,+8000,34.5,19-63 (under),0.0123
+Atlanta Hawks,+10000,36.5,47-35 (over),0.0099
+Golden State Warriors,+10000,37.5,29-53 (under),0.0099
+Indiana Pacers,+10000,35.5,36-46 (over),0.0099
+New Jersey Nets,+10000,27.5,34-48 (over),0.0099
+New York Knicks,+10000,32.5,32-50 (under),0.0099
+Charlotte Bobcats,+12500,36.5,35-47 (under),0.0079
+Minnesota Timberwolves,+15000,30.5,24-58 (under),0.0066
+Milwaukee Bucks,+15000,30.5,34-48 (over),0.0066
+Oklahoma City Thunder,+20000,25.5,23-59 (under),0.005
+Sacramento Kings,+20000,28.5,17-65 (under),0.005
+Memphis Grizzlies,+25000,22.5,24-58 (over),0.004
