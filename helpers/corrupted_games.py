@@ -14,8 +14,4 @@ for item, row in game_inventory.iterrows():
     if row["GAME_ID"] in corrupted_games:
         game_inventory = game_inventory.drop(item)
 
-<<<<<<< HEAD
 game_inventory.to_csv('~/nba-dl/data/game-inventory/all-games-corrected.csv', index=False)
-=======
-game_inventory.to_csv('~/nba-dl/data/game-inventory/all-games-corrected.csv')
->>>>>>> 2c7cec03d3cd1caabf0aaac981c9a313dc4a0611
