@@ -1,0 +1,150 @@
+{
+    "Denver Nuggets": {
+        "TEAM_ABBREVIATION": "DEN",
+        "TEAM_ID": 1610612743
+    },
+    "Portland Trail Blazers": {
+        "TEAM_ABBREVIATION": "POR",
+        "TEAM_ID": 1610612757
+    },
+    "Sacramento Kings": {
+        "TEAM_ABBREVIATION": "SAC",
+        "TEAM_ID": 1610612758
+    },
+    "Boston Celtics": {
+        "TEAM_ABBREVIATION": "BOS",
+        "TEAM_ID": 1610612738
+    },
+    "Chicago Bulls": {
+        "TEAM_ABBREVIATION": "CHI",
+        "TEAM_ID": 1610612741
+    },
+    "Seattle SuperSonics": {
+        "TEAM_ABBREVIATION": "SEA",
+        "TEAM_ID": 1610612760
+    },
+    "Orlando Magic": {
+        "TEAM_ABBREVIATION": "ORL",
+        "TEAM_ID": 1610612753
+    },
+    "Washington Wizards": {
+        "TEAM_ABBREVIATION": "WAS",
+        "TEAM_ID": 1610612764
+    },
+    "New Jersey Nets": {
+        "TEAM_ABBREVIATION": "NJN",
+        "TEAM_ID": 1610612751
+    },
+    "Minnesota Timberwolves": {
+        "TEAM_ABBREVIATION": "MIN",
+        "TEAM_ID": 1610612750
+    },
+    "Philadelphia 76ers": {
+        "TEAM_ABBREVIATION": "PHI",
+        "TEAM_ID": 1610612755
+    },
+    "Los Angeles Lakers": {
+        "TEAM_ABBREVIATION": "LAL",
+        "TEAM_ID": 1610612747
+    },
+    "New York Knicks": {
+        "TEAM_ABBREVIATION": "NYK",
+        "TEAM_ID": 1610612752
+    },
+    "Atlanta Hawks": {
+        "TEAM_ABBREVIATION": "ATL",
+        "TEAM_ID": 1610612737
+    },
+    "Milwaukee Bucks": {
+        "TEAM_ABBREVIATION": "MIL",
+        "TEAM_ID": 1610612749
+    },
+    "Golden State Warriors": {
+        "TEAM_ABBREVIATION": "GSW",
+        "TEAM_ID": 1610612744
+    },
+    "Charlotte Hornets": {
+        "TEAM_ABBREVIATION": "CHH",
+        "TEAM_ID": 1610612766
+    },
+    "Vancouver Grizzlies": {
+        "TEAM_ABBREVIATION": "VAN",
+        "TEAM_ID": 1610612763
+    },
+    "Houston Rockets": {
+        "TEAM_ABBREVIATION": "HOU",
+        "TEAM_ID": 1610612745
+    },
+    "Phoenix Suns": {
+        "TEAM_ABBREVIATION": "PHX",
+        "TEAM_ID": 1610612756
+    },
+    "Miami Heat": {
+        "TEAM_ABBREVIATION": "MIA",
+        "TEAM_ID": 1610612748
+    },
+    "Detroit Pistons": {
+        "TEAM_ABBREVIATION": "DET",
+        "TEAM_ID": 1610612765
+    },
+    "San Antonio Spurs": {
+        "TEAM_ABBREVIATION": "SAS",
+        "TEAM_ID": 1610612759
+    },
+    "Los Angeles Clippers": {
+        "TEAM_ABBREVIATION": "LAC",
+        "TEAM_ID": 1610612746
+    },
+    "Cleveland Cavaliers": {
+        "TEAM_ABBREVIATION": "CLE",
+        "TEAM_ID": 1610612739
+    },
+    "Dallas Mavericks": {
+        "TEAM_ABBREVIATION": "DAL",
+        "TEAM_ID": 1610612742
+    },
+    "Toronto Raptors": {
+        "TEAM_ABBREVIATION": "TOR",
+        "TEAM_ID": 1610612761
+    },
+    "Utah Jazz": {
+        "TEAM_ABBREVIATION": "UTA",
+        "TEAM_ID": 1610612762
+    },
+    "Indiana Pacers": {
+        "TEAM_ABBREVIATION": "IND",
+        "TEAM_ID": 1610612754
+    },
+    "Memphis Grizzlies": {
+        "TEAM_ABBREVIATION": "MEM",
+        "TEAM_ID": 1610612763
+    },
+    "New Orleans Hornets": {
+        "TEAM_ABBREVIATION": "NOH",
+        "TEAM_ID": 1610612740
+    },
+    "Charlotte Bobcats": {
+        "TEAM_ABBREVIATION": "CHA",
+        "TEAM_ID": 1610612766
+    },
+    "New Orleans/Oklahoma City Hornets": {
+        "TEAM_ABBREVIATION": "NOK",
+        "TEAM_ID": 1610612740
+    },
+    "Oklahoma City Thunder": {
+        "TEAM_ABBREVIATION": "OKC",
+        "TEAM_ID": 1610612760
+    },
+    "Brooklyn Nets": {
+        "TEAM_ABBREVIATION": "BKN",
+        "TEAM_ID": 1610612751
+    },
+    "New Orleans Pelicans": {
+        "TEAM_ABBREVIATION": "NOP",
+        "TEAM_ID": 1610612740
+    },
+    "LA Clippers": {
+        "TEAM_ABBREVIATION": "LAC",
+        "TEAM_ID": 1610612746
+    }
+}
