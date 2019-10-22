@@ -1,12 +1,36 @@
 from datetime import datetime, timedelta
 import json
 import os
+import pandas as pd
 
 def get_team_abbreviation(team):
     with open(os.path.expanduser('~/nba-dl/data/config/teams.json')) as f:
         teams_config = json.load(f)
 
     return teams_config[team]['TEAM_ABBREVIATION']
+
+def get_season_from_id(season_id):
+    with open(os.path.expanduser('~/nba-dl/data/config/season-config.json')) as f:
+        season_config = json.load(f)
+    for season, ids in season_config.items():
+        if season_id in ids:
+            return season
+
+def get_home_team_preseason_odds(game):
+    season_id = game['SEASON_ID'].values[0]
+    team = game['HOME_TEAM_NAME'].values[0]
+    season = get_season_from_id(season_id)
+    odds = pd.read_csv('~/nba-dl/data/preseason-odds/{}-preseason-odds.csv'.format(season))
+    team_row = odds[odds['Team'] == team]
+    return team_row["Probability"].values[0]
+    
+def get_away_team_preseason_odds(game):
+    season_id = game['SEASON_ID'].values[0]
+    team = game['AWAY_TEAM_NAME'].values[0]
+    season = get_season_from_id(season_id)
+    odds = pd.read_csv('~/nba-dl/data/preseason-odds/{}-preseason-odds.csv'.format(season))
+    team_row = odds[odds['Team'] == team]
+    return team_row["Probability"].values[0]
 
 def home_games_in_last_week(game, game_inventory):
     game_date = game['GAME_DATE'].values[0]
