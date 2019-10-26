@@ -3,6 +3,16 @@ import json
 import os
 import pandas as pd
 
+def game_date_to_season(game_date):
+    year, month, day = game_date.split('-')
+    if int(month) > 8:
+        next_year = int(year) + 1
+        season = '{}-{}'.format(year, str(next_year)[2:])
+    else:
+        prev_year = int(year) - 1
+        season = '{}-{}'.format(prev_year, str(year)[2:])
+    return season
+
 def get_team_abbreviation(team):
     with open(os.path.expanduser('~/nba-dl/data/config/teams.json')) as f:
         teams_config = json.load(f)
@@ -17,17 +27,27 @@ def get_season_from_id(season_id):
             return season
 
 def get_home_team_preseason_odds(game):
-    season_id = game['SEASON_ID']
+    try:
+        season_id = game['SEASON_ID']
+        season = get_season_from_id(season_id)
+    except KeyError:
+        season = game_date_to_season(game['GAME_DATE'])
     team = game['HOME_TEAM_NAME']
-    season = get_season_from_id(season_id)
+    if team == 'LA Clippers':
+        team = 'Los Angeles Clippers'
     odds = pd.read_csv('~/nba-dl/data/preseason-odds/{}-preseason-odds.csv'.format(season))
     team_row = odds[odds['Team'] == team]
     return team_row["Probability"].values[0]
     
 def get_away_team_preseason_odds(game):
-    season_id = game['SEASON_ID']
+    try:
+        season_id = game['SEASON_ID']
+        season = get_season_from_id(season_id)
+    except KeyError:
+        season = game_date_to_season(game['GAME_DATE'])
     team = game['AWAY_TEAM_NAME']
-    season = get_season_from_id(season_id)
+    if team == 'LA Clippers':
+        team = 'Los Angeles Clippers'
     odds = pd.read_csv('~/nba-dl/data/preseason-odds/{}-preseason-odds.csv'.format(season))
     team_row = odds[odds['Team'] == team]
     return team_row["Probability"].values[0]
@@ -35,6 +55,8 @@ def get_away_team_preseason_odds(game):
 def get_home_team_season_ratio(game):
     game_date = game['GAME_DATE']
     team = game['HOME_TEAM_NAME']
+    if team == 'LA Clippers':
+        team = 'Los Angeles Clippers'
     standings = pd.read_csv('~/nba-dl/data/league-standings/{}_league_standings.csv'.format(game_date))
     team_row = standings[standings['Team'] == team]
     return team_row["W/L%"].values[0]
@@ -42,6 +64,8 @@ def get_home_team_season_ratio(game):
 def get_away_team_season_ratio(game):
     game_date = game['GAME_DATE']
     team = game['AWAY_TEAM_NAME']
+    if team == 'LA Clippers':
+        team = 'Los Angeles Clippers'
     standings = pd.read_csv('~/nba-dl/data/league-standings/{}_league_standings.csv'.format(game_date))
     team_row = standings[standings['Team'] == team]
     return team_row["W/L%"].values[0]
@@ -49,6 +73,8 @@ def get_away_team_season_ratio(game):
 def get_home_team_season_avg_pts_scored(game):
     game_date = game['GAME_DATE']
     team = game['HOME_TEAM_NAME']
+    if team == 'LA Clippers':
+        team = 'Los Angeles Clippers'
     standings = pd.read_csv('~/nba-dl/data/league-standings/{}_league_standings.csv'.format(game_date))
     team_row = standings[standings['Team'] == team]
     return team_row["PS/G"].values[0]
@@ -56,6 +82,8 @@ def get_home_team_season_avg_pts_scored(game):
 def get_away_team_season_avg_pts_scored(game):
     game_date = game['GAME_DATE']
     team = game['AWAY_TEAM_NAME']
+    if team == 'LA Clippers':
+        team = 'Los Angeles Clippers'
     standings = pd.read_csv('~/nba-dl/data/league-standings/{}_league_standings.csv'.format(game_date))
     team_row = standings[standings['Team'] == team]
     return team_row["PS/G"].values[0]
@@ -63,6 +91,8 @@ def get_away_team_season_avg_pts_scored(game):
 def get_home_team_season_avg_pts_lost(game):
     game_date = game['GAME_DATE']
     team = game['HOME_TEAM_NAME']
+    if team == 'LA Clippers':
+        team = 'Los Angeles Clippers'
     standings = pd.read_csv('~/nba-dl/data/league-standings/{}_league_standings.csv'.format(game_date))
     team_row = standings[standings['Team'] == team]
     return team_row["PA/G"].values[0]
@@ -70,6 +100,8 @@ def get_home_team_season_avg_pts_lost(game):
 def get_away_team_season_avg_pts_lost(game):
     game_date = game['GAME_DATE']
     team = game['AWAY_TEAM_NAME']
+    if team == 'LA Clippers':
+        team = 'Los Angeles Clippers'
     standings = pd.read_csv('~/nba-dl/data/league-standings/{}_league_standings.csv'.format(game_date))
     team_row = standings[standings['Team'] == team]
     return team_row["PA/G"].values[0]
