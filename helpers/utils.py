@@ -165,6 +165,8 @@ def home_last_10_games_h2h_ratio(game, game_inventory):
     home_team = game['HOME_TEAM_NAME']
     away_team = game['AWAY_TEAM_NAME']
     away_team_abbreviation = get_team_abbreviation(away_team)
+    if away_team_abbreviation == 'CHH':
+        away_team_abbreviation = 'CHA'
     team_games = game_inventory[game_inventory['TEAM_NAME'] == home_team]
     last_team_games = team_games[team_games['GAME_DATE'] < date].sort_values(by=['GAME_DATE'], ascending=False)
     last_team_hh_games = last_team_games[last_team_games['MATCHUP'].str.contains(away_team_abbreviation)]
@@ -185,6 +187,8 @@ def away_last_10_games_h2h_ratio(game, game_inventory):
     home_team = game['HOME_TEAM_NAME']
     away_team = game['AWAY_TEAM_NAME']
     home_team_abbreviation = get_team_abbreviation(home_team)
+    if home_team_abbreviation == 'CHH':
+        home_team_abbreviation = 'CHA'
     team_games = game_inventory[game_inventory['TEAM_NAME'] == away_team]
     last_team_games = team_games[team_games['GAME_DATE'] < date].sort_values(by=['GAME_DATE'], ascending=False)
     last_team_hh_games = last_team_games[last_team_games['MATCHUP'].str.contains(home_team_abbreviation)]
