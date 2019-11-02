@@ -57,7 +57,7 @@ def generate_matches(data):
 
 def write_to_csv(name, headers, data_table):
     
-    logger.info("Creating csv file...")
+    logger.debug("Creating csv file...")
     with open(name, 'w+') as csv_file:
         csv_writer = csv.writer(csv_file)
         csv_writer.writerow(headers)
@@ -108,7 +108,7 @@ def create_game_inventory():
             game_finder = leaguegamefinder.LeagueGameFinder(season_type_nullable=season_part, season_nullable=season, league_id_nullable='00')
             games = game_finder.get_data_frames()[0]
             game_inventory = game_inventory.append(games)
-            logger.info("Appending {} games for {} season to game-inventory...".format(season_part, season))
+            logger.debug("Appending {} games for {} season to game-inventory...".format(season_part, season))
             time.sleep(5)
     return game_inventory
 
