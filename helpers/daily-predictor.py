@@ -1,7 +1,10 @@
 # import warnings filter
-from warnings import simplefilter
+import warnings
 # ignore all future warnings
-simplefilter(action='ignore', category=FutureWarning)
+warnings.filterwarnings("ignore", category=DeprecationWarning)
+warnings.filterwarnings("ignore", category=FutureWarning)
+warnings.filterwarnings("ignore", category=UserWarning)
+#simplefilter(action='ignore', category=FutureWarning)
 from keras.models import model_from_json
 import os
 import pickle
@@ -12,6 +15,11 @@ import pandas as pd
 from datetime import datetime
 from sklearn.preprocessing import StandardScaler
 from prettytable import PrettyTable
+from io import StringIO
+import sys
+sys.path.append(os.path.expanduser('~/nba-dl/blog/'))
+from blog import db
+from blog.models import Post
 
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)
@@ -29,7 +37,7 @@ daily_dataset_path = os.path.expanduser('~/nba-dl/data/realtime/{}.csv'.format(d
 model_path = os.path.expanduser('~/nba-dl/models/model-{}.json'.format(args.model))
 weights_path = os.path.expanduser('~/nba-dl/models/model-{}-weights.h5'.format(args.model))
 features_path = os.path.expanduser('~/nba-dl/models/model-{}-features.pickle'.format(args.model))
-csv_outfile_path = os.path.expanduser('~/nba-dl/daily-predictions/{}-predictions.csv'.format(date))
+csv_outfile_path = os.path.expanduser('~/nba-dl/data/daily-predictions/{}-predictions.csv'.format(date))
 
 def setup_model(path):
     logger.info("Getting submitted model...")
@@ -74,6 +82,15 @@ def map_result(result):
         winner = 'L'
     return winner
 
+def map_winner(series):
+    if series['Home Result'] == 'W':
+        winner = series['Home']
+        odds = round(series['Away Odds'] * 100, 2)
+    else:
+        winner = series['Away']
+        odds = round(series['Away Odds'] * 100, 2)
+    return winner, odds
+
 def generate_csv(results, percentage_results, raw_dataset):
     with open(csv_outfile_path, 'w+') as outfile:
         writer = csv.writer(outfile)
@@ -94,6 +111,18 @@ def generate_table(results, percentage_results, raw_dataset):
         i+=1
     print(table)
 
+def add_post():
+    logger.info("Adding new post to blog...")
+    output = StringIO()
+    df = pd.read_csv(csv_outfile_path)
+    for index, series in df.iterrows():
+        winner, odds = map_winner(series)
+        output.write("{} vs {} -> {} ({}%)\n".format(series['Home'], series['Away'], winner, odds))
+    content = output.getvalue()
+    post = Post(title='Daily bets - matchup and predicted winner', date_posted=datetime.now(), text=content)
+    db.session.add(post)
+    db.session.commit()
+
 def main():
     model = setup_model(model_path)
     load_weights(model, weights_path)
@@ -103,6 +132,7 @@ def main():
     results, percentage_results = predict(model, daily_input_data)
     generate_table(results, percentage_results, raw_data)
     generate_csv(results, percentage_results, raw_data)
+    add_post()
 
 if __name__ == '__main__':
     main()
