@@ -85,7 +85,7 @@ def map_result(result):
 def map_winner(series):
     if series['Home Result'] == 'W':
         winner = series['Home']
-        odds = round(series['Away Odds'] * 100, 2)
+        odds = round(series['Home Odds'] * 100, 2)
     else:
         winner = series['Away']
         odds = round(series['Away Odds'] * 100, 2)
