@@ -21,6 +21,16 @@ season_parts = ['Regular Season', 'Playoffs']
 date = datetime.now()
 one_day_before = (date - timedelta(days=1)).strftime('%Y-%m-%d')
 
+headers = {
+    'Host': 'stats.nba.com',
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:61.0) Gecko/20100101 Firefox/61.0',
+    'Accept': 'application/json, text/plain, */*',
+    'Accept-Language': 'en-US,en;q=0.5',
+    'Referer': 'https://stats.nba.com/',
+    'Accept-Encoding': 'gzip, deflate, br',
+    'Connection': 'keep-alive',
+}
+
 def generate_last_seasons():
     seasons = []
     current_season = season = utils.game_date_to_season(date.strftime('%Y-%m-%d'))
@@ -105,11 +115,11 @@ def create_game_inventory():
     seasons = generate_last_seasons()
     for season in seasons:
         for season_part in season_parts:
-            game_finder = leaguegamefinder.LeagueGameFinder(season_type_nullable=season_part, season_nullable=season, league_id_nullable='00')
+            game_finder = leaguegamefinder.LeagueGameFinder(season_type_nullable=season_part, season_nullable=season, league_id_nullable='00', headers=headers)
             games = game_finder.get_data_frames()[0]
             game_inventory = game_inventory.append(games)
             logger.debug("Appending {} games for {} season to game-inventory...".format(season_part, season))
-            time.sleep(5)
+            time.sleep(10)
     return game_inventory
 
 def create_dataset(games, game_inventory):
