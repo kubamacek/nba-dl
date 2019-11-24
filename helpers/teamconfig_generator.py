@@ -1,3 +1,13 @@
+'''
+teamconfig_generator - python module to generate config file for teams
+
+- uses game inventory to create dict with team name as key and team abbreviation and teamID as values
+- saves result to json file
+
+usage: python3 teamconfig_generator.py
+
+'''
+
 import pandas as pd
 import json
 

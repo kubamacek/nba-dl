@@ -1,3 +1,15 @@
+'''
+daily-predictor - python module to create daily predictions
+
+- needs to define model number from models/ directory
+- create neural network model from saved file
+- gets prepared input and makes predictions for incoming matches
+- publishes results in blog by entering new post to database
+
+usage: python3 daily-predictor.py -m MODEL_NUMBER
+
+'''
+
 # import warnings filter
 import warnings
 # ignore all future warnings

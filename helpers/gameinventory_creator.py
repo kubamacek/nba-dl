@@ -1,3 +1,13 @@
+'''
+gameinventory_creator - python module to create game inventory
+
+- uses nba_api and LeagueGameFinder endpoint - more info: https://github.com/swar/nba_api/blob/master/docs/nba_api/stats/endpoints/leaguegamefinder.md
+- gets all games for defined seasons to create game inventory and saves results to csv file
+
+usage: python3 gameinventory_creator.py
+
+'''
+
 from nba_api.stats.endpoints import leaguegamefinder
 import pandas as pd
 import time

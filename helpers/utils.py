@@ -1,3 +1,10 @@
+'''
+utils - module with tools to create dataset for realtime model
+
+- functions use collected data in order to prepare final dataset
+- tests and examples are placed in notebooks/utils-check.ipnyb
+'''
+
 from datetime import datetime, timedelta
 import json
 import os

@@ -1,3 +1,14 @@
+'''
+leaguestandings_scraper - python module for collecting daily league standings
+
+- gets data from https://www.basketball-reference.com/
+- creates file with league standings for every date in game inventory
+- drop data to csv file
+
+usage: python3 leaguestandings_scraper.py
+
+'''
+
 import requests
 from bs4 import BeautifulSoup
 import logging

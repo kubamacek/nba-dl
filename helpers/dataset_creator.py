@@ -1,3 +1,13 @@
+'''
+dataset_creator - python module to create dataset for realtime model
+
+- to be used separately for regular season and playoffs matches
+- uses functions from utils module to prepare numerical values for each feature
+
+usage: python3 dataset_creator.py
+
+'''
+
 import pandas as pd
 import sys
 import os

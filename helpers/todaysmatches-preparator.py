@@ -1,3 +1,14 @@
+'''
+todaysmatchespreparator - python module to prepare daily input for neural network
+
+- gets matched scheduled for today from ESPN API
+- scrapes league standings for today, create game inventory to prepre needed stats 
+- saves data in csv file in /data/realtime dir
+
+usage: python3 todaysmatchespreparator.py
+
+'''
+
 from nba_api.stats.endpoints import leaguegamefinder
 import pandas as pd
 import time
